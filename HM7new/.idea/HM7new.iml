@@ -14,7 +14,7 @@
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/../HW7\templates" />
+        <option value="$MODULE_DIR$/../HM7new\templates" />
       </list>
     </option>
   </component>
