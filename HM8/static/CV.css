@@ -1,0 +1,83 @@
+body{
+    background-color: rgb(169, 180, 201);
+}
+
+#GridContainer{
+    display: grid;
+    grid-template-areas:
+     'header header header'
+     'left main right'
+     'left main right'
+     'Down Down Down'
+
+}
+
+#item1 {
+    grid-area: header;    height: 100px;
+    width: 1130px;
+    padding: 20px;
+    margin: 20px;
+    background-color: burlywood;
+
+}
+#item2 {
+    grid-area: left;
+    height: 400px;
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(18, 175, 154);
+
+}
+#item3 {
+    grid-area: main;
+    height: 300px;
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(146, 164, 175);
+    
+
+}
+
+#item4 {
+    grid-area: right;
+    height: 200px;
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 50%;
+    animation-name: pphoto;
+    animation-duration: 4s;
+    animation-iteration-count: 10;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-position: center;
+
+}
+#item5 {
+    grid-area: Down;
+    height: 100px;
+    width: 1130px;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(153, 216, 162);
+
+}
+div {
+    border: darkslategray solid ;
+}
+
+
+@media screen and (max-width: 700px) {
+    body {
+      background-color: olive;
+    }
+  }
+  @keyframes pphoto {
+    from {background-image: url(Profile.png);}
+    to {background-color: rgb(255, 255, 255);}
+
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/Hobbies.css">
+    {% set this_page='My Hobbies' %}
+    {% include 'include EX.html' %}
+    <meta charset="UTF-8">
+    <title>My hobbies</title>
+
+</head>
+<body>
+<h1> Welcome to my hobbies page</h1>
+<h1> {% if hour<12 %}
+        Good Morning!
+     {% elif hour<17 and hour>12 %}
+        Good Afternoon!
+    {% else %}
+        Good Evening!
+    {% endif %}
+</h1>
+<h2> Lets talk about my two best hobbies:</h2>
+<h3> first: {{ firsthobbie | capitalize() }}  </h3>
+<h3> second:  {{ secondhobbie | upper() }}</h3>
+<p> I know you ask yourself whats my favorites teams? <br> So here are my favorites teams list!</p>
+<br>
+    {% for team in teams %}
+        <li>{{ team }}</li> <br>
+        {% endfor %}
+<button onclick="window.location.href='/'">Back</button>
+</body>
+</html>

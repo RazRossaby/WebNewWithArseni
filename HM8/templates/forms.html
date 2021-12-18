@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% set this_page='Contact' %}
+    {% include 'include EX.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/CssHM.css">
+    <title>This is my first form </title>
+    <style> </style>
+</head>
+<body>
+    <h2 class="headers"> Sign UP </h2>
+    <form action="register" method="post">
+        <label for="Fname"> First Name</label>  
+        <input type="text" name="Fname" id="Fname" class="text"> <br> <br>
+        <label> Last Name</label>
+        <input type="text" class="text"> <br>  <br>
+        <label id=UserName for="UserName"> User name</label> 
+        <input type="text" name="UserName" id="UserName" class="text"> <br> <br>
+        <label> Date of birth</label> 
+        <input type="date"> <br> <br>
+        <label > Please enter your Email</label> 
+        <input type="email"> <br> <br>
+        <label> Password </label> 
+        <input type="password"> <br>
+        <button type="reset" value="Reset">reset</button>
+        
+    </form>
+    
+    <form action="contact form" method="post">
+        <h2 class="headers">Stay in contact </h2>
+        <label> First Name</label>  
+        <input type="text" class="text">  <br> <br>
+        <label> Last Name</label>
+        <input type="text" class="text"> <br>  <br>
+        <label> Please enter your Email</label> 
+        <input type="email" > <br> <br>
+        <label> Please enter Phone number: </label>
+        <input type="text" id="id1" required pattern="[0-9]{10}">
+        <button type="button" onclick=
+        "myFunction()">OK</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+const inpObj = document.getElementById("id1");
+if (!inpObj.checkValidity()) {
+document.getElementById("demo").innerHTML = inpObj.validationMessage;
+} else {
+document.getElementById("demo").innerHTML = "Input OK";
+}
+}
+</script>
+
+        <label for=""></label>Please enter your text </label> <br>
+        <textarea name="" id="" cols="40" rows="15"> </textarea> <br>
+        <label> Send me a copy of my contact </label> 
+        <input type="checkbox"> <br>
+        <button type="reset" value="Reset">reset</button>
+        <button type="button" >submit</button>
+        <button onclick="window.location.href='/'">Back</button>
+        
+        
+    </form>
+</body>
+
+</html>

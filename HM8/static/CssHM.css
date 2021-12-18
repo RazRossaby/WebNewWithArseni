@@ -1,0 +1,51 @@
+
+--root {
+    --darkblue: #242582;
+    --eggplant: #556d67;
+    --pink: #f64c72;
+    --makeup: #99738e;
+    
+    
+}
+
+body {
+    background-color: cornflowerblue;
+}
+h2 {
+    color: white;
+    font-size: 20px ;
+
+}
+head { background-color: yellow;}
+
+#UserName {
+
+    color: red;
+}
+
+.headers {
+  background-color: blanchedalmond;
+  color: black;
+  font-family: sans-serif;
+
+}
+label {
+color: brown;
+padding: 10px ;
+margin: 10px;
+
+
+}
+a {
+
+    color: brown;
+}
+a:visited {
+    color: cyan;
+}
+a:link {
+    color: white;
+}
+a:hover {
+    color: purples;
+}
