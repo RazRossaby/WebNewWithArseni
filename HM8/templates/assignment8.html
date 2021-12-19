@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <link rel="stylesheet" href="/static/Hobbies.css">
     {% set this_page='My Hobbies' %}
     {% include 'include EX.html' %}
+
     <meta charset="UTF-8">
     <title>My hobbies</title>
 
 </head>
 <body>
+
 <h1> Welcome to my hobbies page</h1>
 <h1> {% if hour<12 %}
         Good Morning!
@@ -26,6 +29,14 @@
     {% for team in teams %}
         <li>{{ team }}</li> <br>
         {% endfor %}
-<button onclick="window.location.href='/'">Back</button>
+
+<h2> My Blocks</h2> <br>
+{% extends "block EX.html" %}
+    {% block body %}
+        {{ super() }}
+        Hello to Assignment8!
+        <button onclick="window.location.href='/'">Back</button>
+    {% endblock %}
+
 </body>
 </html>
