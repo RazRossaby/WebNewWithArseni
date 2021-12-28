@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1> Hello {{ session.username }} </h1>
     {% set this_page='My CV' %}
     {% include 'include EX.html' %}
     <div id="GridContainer"">
@@ -28,6 +29,11 @@
     <a href="/ContactUs">Stay in Contact!</a>
     <a href="/Hobbies">Want to see more about my hobbies? Click Here!!</a>
 
+    {% if session.username %}
+             <button onclick="window.location.href='/log_out'">LOG OUT</button>
+    {% else %}
+            <button onclick="window.location.href='/assignment9'">LOG IN</button>
+      {% endif %}
     
     </div>
     

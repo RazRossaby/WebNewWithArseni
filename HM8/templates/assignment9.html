@@ -1,0 +1,38 @@
+
+    <meta charset="UTF-8">
+    <h1>Search form: :</h1>
+    <link rel="stylesheet" href="/static/CV.css">
+    <form action="/assignment9" method="GET">
+        User Name: <input name="name" type="text">
+        <input type="submit">
+    </form>
+    {% if session['name'] %}
+            {% for user in users %}
+                {% if users[user].name == session['name'] %}
+                   Name: {{ users[user].name }},
+                   Email: {{ users[user].email }}
+                {% endif %}
+            {% endfor %}
+    {% else %}
+            {% for user in users %}
+                Name: {{ users[user].name }},
+                Email: {{ users[user].email }}
+            {% endfor %}
+    {% endif %}
+
+
+    <h1>Registration form:</h1>
+    <h3> Enter Username and Password:</h3>
+    <form action="/assignment9" method="POST">
+        User Name: <input name="username" type="text"> <br> <br>
+        Password: <input name="password" type="password"> <br> <br>
+        <input type="submit">
+    </form>
+
+    {% if session.username %}
+        <h3> Hello {{ session.username }} </h3>
+    {% else %}
+    {% endif %}
+
+<button onclick="window.location.href='/'">Back</button>
+
