@@ -1,11 +1,19 @@
+from flask import app
 from flask import Flask
 from flask import render_template
 import datetime
 from flask import request
 from flask import session
+from interact_with_DB import *
+from flask import redirect
 
 app = Flask(__name__)
 app.secret_key = '12345'
+
+from assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
+
+
 
 
 @app.route('/')
@@ -66,21 +74,17 @@ def log_out():  # put application's code here
 
 
 
+@app.route('/req_frontend')
+def reqfront():
+    return render_template('req_frontend.html')
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+@app.route('/req_back')
+def reqback():
+    return render_template('req_back.html')
 
 
 

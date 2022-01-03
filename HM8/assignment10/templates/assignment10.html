@@ -1,10 +1,64 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+
+    <link rel="stylesheet" href="{{ url_for('assignment10.static', filename= 'assignment10.css') }}"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
 </head>
 <body>
-$END$
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <h2> Our Users</h2>
+    <h3> {{ massage }}</h3>
+    <H2>Insert New User</H2>
+<form action="/insert_user" method="post">
+    <input type="text" name="name" placeholder="Name">
+    <input type="email" name="email" placeholder="Email">
+    <input type="submit" value="insert">
+
+</form>
+<h3> list of users</h3>
+{% for user in users %}
+    <li> {{ user.Name }}, {{ user.Email }}</li>
+{% endfor %}
+
+<form action="/delete_user_name" method="post">
+    <H2> Delete By Name</H2>
+    <input type="text" name="name" placeholder="Name">
+        <input type="submit">
+</form>
+
+<form action="/delete_user_email" method="post">
+    <H2> Delete By mail</H2>
+    <input type="text" name="email" placeholder="Name">
+        <input type="submit">
+</form>
+
+
+
+<form action="/updatemail" method="post">
+  <h2>Update email</h2>
+    <input type="text" name="name" placeholder="Name">
+    <h3>New Email</h3>
+    <input type="email" name="email" placeholder="Email">
+    <input type="submit">
+</form>
+    <form action="/updatename" method="post">
+  <h2>Update Name</h2>
+    <input type="email" name="email2" placeholder="Email">
+    <h3>New Name</h3>
+    <input type="text" name="name2" placeholder="Name">
+    <input type="submit">
+</form>
 </body>
 </html>
