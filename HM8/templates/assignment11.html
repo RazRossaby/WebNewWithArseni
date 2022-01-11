@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/static/CV.css">
+<h3> FrontEnd: </h3>
+    <input type="number" name="userid" id="userid">
+    <button onclick="showUser()"> Search FrontEnd </button>
+
+
+<main id="userdata">
+
+</main>
+
+
+
+
+<form>
+    <h3> BackEnd: </h3>
+    <input type="number" name="number" id="number" required>
+    <input type="submit" value="Search BackEnd">
+</form>
+
+
+{% if user %}
+<img src="{{user.data.avatar}}" alt="profile Picture"/>
+<div>
+    <span>{{user.data.first_name}} {{user.data.last_name}}</span>
+    <br>
+    <a href="malito:{{user.data.email}}">Send Email</a>
+</div>
+{%endif%}
+
+
+
+
+
+<script>
+function showUser() {
+    console.log('clicked');
+    let userid = document.getElementById('userid').value;
+    userid= userid.toString();
+    fetch('https://reqres.in/api/users/'+userid).then(
+    response => response.json()
+    ).then(
+    response_obj => {addToHtml(response_obj.data);}
+    ).catch(
+    error=> console.log(error)
+    )
+}
+function addToHtml(response_obj){
+    const curr_main = document.querySelector("main");
+    const section = document.createElement('section');
+    section.innerHTML = `
+    <img src="${response_obj.avatar}" alt="profile Picture"/>
+    <div>
+        <span>${response_obj.first_name} ${response_obj.last_name}</span>
+        <br>
+        <a href="malito:${response_obj.email}">Send Email</a>
+    </div>
+    `;
+    curr_main.appendChild(section);
+}
+</script>

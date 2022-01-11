@@ -67,3 +67,7 @@ def updatename():
     interact_db(query=query, query_type='commit')
     flash(f'Account Updated!', 'success')
     return redirect('/assignment10')
+
+
+
+

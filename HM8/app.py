@@ -1,4 +1,5 @@
-from flask import app
+import requests as requests
+from flask import app, jsonify
 from flask import Flask
 from flask import render_template
 import datetime
@@ -6,6 +7,8 @@ from flask import request
 from flask import session
 from interact_with_DB import *
 from flask import redirect
+
+
 
 app = Flask(__name__)
 app.secret_key = '12345'
@@ -72,20 +75,29 @@ def log_out():  # put application's code here
     return render_template('CV.html')
 
 
-
-
-@app.route('/req_frontend')
-def reqfront():
-    return render_template('req_frontend.html')
-
-
+@app.route('/assignment11/users')
+def Show_users():
+    query = "select * from users"
+    query_result = interact_db(query=query, query_type='fetch')
+    return jsonify(query_result)
 
 
 
-@app.route('/req_back')
-def reqback():
-    return render_template('req_back.html')
+@app.route('/assignment11/Outer_source')
+def assignment11_outer_source_func():
+    if "number" in request.args:
+        userID = int(request.args['number'])
+        user = find_user(userID)
+        return render_template('assignment11.html', user=user)
+    else:
+        return render_template('assignment11.html')
 
+
+def find_user(num):
+    num = str(num)
+    res = requests.get(url=f'https://reqres.in/api/users/{num}')
+    res = res.json()
+    return res
 
 
 if __name__ == '__main__':
