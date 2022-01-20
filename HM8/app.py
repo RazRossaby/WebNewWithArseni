@@ -100,5 +100,18 @@ def find_user(num):
     return res
 
 
+
+@app.route('/assignment12/restapi_users', defaults={'user_id': 1})
+@app.route('/assignment12/restapi_users/<int:user_id>', methods=['GET', 'POST'])
+def get_user_json(user_id):
+    query = "select * from users where id=%s" % user_id
+    query_result = interact_db(query=query,query_type='fetch')
+    if len(query_result) == 0:
+        return_dict = {'status': 'Error!', 'message': 'User Does Not Exist!'}
+    else:
+        return_dict = {'status': 'True', 'Name': query_result[0].Name, 'Email': query_result[0].Email}
+    return jsonify(return_dict)
+
+
 if __name__ == '__main__':
     app.run()
